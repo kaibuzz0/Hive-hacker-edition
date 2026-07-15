@@ -1,0 +1,40 @@
+LEGAL NOTICE - HIVE HACKER EDITION
+===================================
+
+This software is provided for AUTHORIZED security testing and educational
+purposes only.
+
+BY USING THIS SOFTWARE, YOU AGREE:
+
+1. You will only test systems you own or have explicit written permission
+to test.
+
+2. You will comply with all applicable laws including:
+   - Computer Fraud and Abuse Act (CFAA)
+   - Data Protection regulations (GDPR, CCPA, etc.)
+   - Local computer crime laws
+
+3. You assume full responsibility for your actions.
+
+4. The authors assume no liability for misuse.
+
+5. If you find vulnerabilities, you will report them responsibly.
+
+UNAUTHORIZED ACCESS TO COMPUTER SYSTEMS IS A CRIME.
+
+Penalties may include:
+- Civil liability
+- Criminal prosecution
+- Fines
+- Imprisonment
+
+Use your powers for good. Help secure the world.
+
+---
+
+For legitimate security research:
+- HackerOne: https://hackerone.com
+- Bugcrowd: https://bugcrowd.com  
+- Synack: https://synack.com
+
+"With great power comes great responsibility."
