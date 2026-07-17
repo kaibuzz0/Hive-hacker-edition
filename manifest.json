@@ -1,0 +1,68 @@
+{
+  "hive_os": {
+    "version": "2.0.0",
+    "platform": "termux",
+    "architecture": "arm64"
+  },
+  "dependencies": {
+    "system_packages": [
+      "python",
+      "python-pip",
+      "git",
+      "curl",
+      "wget",
+      "nmap",
+      "net-tools",
+      "openssh",
+      "openssl-tool",
+      "termux-api",
+      "jq"
+    ],
+    "python_packages": [
+      "requests",
+      "beautifulsoup4",
+      "dnspython",
+      "scapy",
+      "cryptography",
+      "pynacl",
+      "bcrypt",
+      "pyyaml",
+      "jsonschema",
+      "colorama",
+      "rich",
+      "prompt-toolkit",
+      "click",
+      "pexpect"
+    ]
+  },
+  "ports": {
+    "hive_daemon": 8765,
+    "hermes_bridge": 8766,
+    "swarm_communication": 8767,
+    "backup_service": 8768
+  },
+  "paths": {
+    "hive_root": "~/.hive",
+    "registry": "~/.hive/registry.json",
+    "logs": "~/.hive/logs",
+    "cache": "~/.hive/cache",
+    "backups": "~/.hive/backups"
+  },
+  "features": {
+    "self_healing": true,
+    "auto_backup": true,
+    "verify_chains": true,
+    "hermes_integration": true,
+    "port_proxy": true
+  },
+  "network": {
+    "proxy_mode": "socks5",
+    "proxy_host": "127.0.0.1",
+    "proxy_port": 9050,
+    "hermes_port": 8080,
+    "allowed_hosts": [
+      "localhost",
+      "127.0.0.1"
+    ]
+  }
+}
