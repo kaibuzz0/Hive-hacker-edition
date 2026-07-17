@@ -4,19 +4,25 @@
 
 Complete Hive Operating System for penetration testing, security research, and AI-powered automation. Designed for Termux on Android.
 
+## 📱 ONE-LINE INSTALL (EASIEST)
+
+**Open Termux and paste this single command:**
+
+```bash
+curl -sSL https://raw.githubusercontent.com/kaibuzz0/Hive-hacker-edition/main/install.sh | bash
+```
+
+That's it! The installer handles everything automatically.
+
 ## 📱 PHONE REPLACEMENT WORKFLOW
 
 **Lost your phone? Get a new one and restore everything in minutes:**
 
 ```bash
 # 1. Install Termux from F-Droid
-# 2. Open Termux and run:
+# 2. Open Termux and paste:
 
-pkg install git
-
-git clone https://github.com/kaibuzz0/Hive-hacker-edition.git
-cd Hive-hacker-edition
-./setup.sh
+curl -sSL https://raw.githubusercontent.com/kaibuzz0/Hive-hacker-edition/main/install.sh | bash
 
 # Done! Your complete Hive OS is restored.
 ```
