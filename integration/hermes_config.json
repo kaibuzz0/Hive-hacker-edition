@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "name": "Hive-Hermes Bridge",
+  "description": "Connects Hive OS Swarm to Hermes Agent",
+  
+  "connection": {
+    "protocol": "json-rpc",
+    "transport": "file-queue",
+    "queue_path": "~/.hive/hermes_queue.json",
+    "poll_interval": 1.0
+  },
+  
+  "ports": {
+    "hive_daemon": 8765,
+    "hermes_bridge": 8766,
+    "message_queue": 8767
+  },
+  
+  "integration": {
+    "auto_start": true,
+    "bidirectional": true,
+    "verify_messages": true,
+    "log_communication": true
+  },
+  
+  "features": {
+    "delegate_to_swarm": true,
+    "swarm_to_hermes": true,
+    "task_status_sync": true,
+    "error_forwarding": true
+  },
+  
+  "mappings": {
+    "hermes_tool_call": "swarm_task",
+    "swarm_complete": "hermes_result",
+    "swarm_verify": "hermes_confirm"
+  }
+}
