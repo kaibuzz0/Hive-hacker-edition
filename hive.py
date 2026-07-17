@@ -1,264 +1,217 @@
 #!/usr/bin/env python3
 """
-HIVE HACKER EDITION - Core Arsenal
-Ultimate Penetration Testing & Security Research Toolkit
-For Termux / Mobile / Embedded Systems
-
-DISCLAIMER: For authorized security testing only.
+HIVE LAUNCHER
+Main entry point for the Hive System
+Combines penetration testing tools with Swarm AI orchestration
 """
 
 import sys
 import os
-import subprocess
-import json
 from pathlib import Path
-from datetime import datetime
 
-# Module categories
+# Add core to path
+sys.path.insert(0, str(Path(__file__).parent / 'core'))
+
+BANNER = """
+╔══════════════════════════════════════════════════════════════╗
+║  🐝 HIVE SYSTEM v2.0 - Hacker Edition                          ║
+║                                                                ║
+║  AI-Powered Penetration Testing & Security Research Platform   ║
+║  Multi-Agent Swarm with Verification Loops                      ║
+╚══════════════════════════════════════════════════════════════╝
+"""
+
 MODULES = {
-    "recon": {
-        "name": "Reconnaissance",
-        "tools": ["domain_enum", "subdomain_brute", "port_scan", "service_detect"],
-        "path": "10-RECON"
-    },
-    "scanning": {
-        "name": "Vulnerability Scanning", 
-        "tools": ["web_scan", "api_fuzz", "dir_brute", "tech_fingerprint"],
-        "path": "20-SCANNING"
-    },
-    "exploitation": {
-        "name": "Exploitation",
-        "tools": ["payload_gen", "shell_handler", "privesc_check", "lateral_move"],
-        "path": "30-EXPLOITATION"
-    },
-    "post_exploit": {
-        "name": "Post-Exploitation",
-        "tools": ["persistence", "data_exfil", "log_wipe", "backdoor"],
-        "path": "40-POST-EXPLOIT"
-    },
-    "reporting": {
-        "name": "Reporting",
-        "tools": ["screenshot", "evidence_collector", "report_gen", "timeline"],
-        "path": "50-REPORTING"
-    },
-    "anonymity": {
-        "name": "Anonymity & OPSEC",
-        "tools": ["tor_route", "mac_spoof", "dns_tunnel", "traffic_shape"],
-        "path": "60-ANONYMITY"
-    },
-    "crypto": {
-        "name": "Cryptography",
-        "tools": ["hash_crack", "cipher_break", "stego", "blockchain_analyze"],
-        "path": "70-CRYPTO"
-    },
-    "wireless": {
-        "name": "Wireless",
-        "tools": ["wifi_scan", "wpa_crack", "evil_twin", "bluetooth_sniff"],
-        "path": "80-WIRELESS"
-    },
-    "social": {
-        "name": "Social Engineering",
-        "tools": ["phish_template", "sms_spoof", "caller_id", "pretext_gen"],
-        "path": "90-SOCIAL-ENG"
-    }
+    '1': ('Core Swarm', 'core', [
+        ('orchestrator', 'Swarm Orchestrator', 'python3 core/orchestrator.py'),
+        ('assistant', 'Assistant Agent', 'python3 core/agents/assistant_agent.py'),
+        ('architect', 'Architect Agent', 'python3 core/agents/architect_agent.py'),
+    ]),
+    '2': ('Reconnaissance', '10-RECON', [
+        ('dns_enum', 'DNS Enumeration', '10-RECON/dns_enum.py'),
+        ('subdomain_brute', 'Subdomain Brute', '10-RECON/subdomain_brute.py'),
+        ('whois_enum', 'WHOIS Lookup', '10-RECON/whois_enum.py'),
+        ('banner_grab', 'Banner Grabber', '10-RECON/banner_grab.py'),
+    ]),
+    '3': ('Scanning', '20-SCANNING', [
+        ('port_scanner', 'Port Scanner', '20-SCANNING/port_scanner.py'),
+        ('dir_bruter', 'Directory Brute', '20-SCANNING/dir_bruter.py'),
+        ('web_scanner', 'Web Vulnerability Scanner', '20-SCANNING/web_scanner.py'),
+        ('net_sniffer', 'Network Sniffer', '20-SCANNING/net_sniffer.py'),
+    ]),
+    '4': ('Exploitation', '30-EXPLOITATION', [
+        ('payload_gen', 'Payload Generator', '30-EXPLOITATION/payload_generator.py'),
+        ('ssh_brute', 'SSH Brute Force', '30-EXPLOITATION/ssh_brute.py'),
+        ('sql_injector', 'SQL Injection Tester', '30-EXPLOITATION/sql_injector.py'),
+        ('xss_tester', 'XSS Tester', '30-EXPLOITATION/xss_tester.py'),
+        ('exploit_search', 'Exploit Database', '30-EXPLOITATION/exploit_search.py'),
+    ]),
+    '5': ('Post-Exploitation', '40-POST-EXPLOIT', [
+        ('backdoor', 'Backdoor Manager', '40-POST-EXPLOIT/backdoor_manager.py'),
+        ('privesc', 'Privilege Escalation Checker', '40-POST-EXPLOIT/privesc_checker.py'),
+        ('cred_harvester', 'Credential Harvester', '40-POST-EXPLOIT/cred_harvester.py'),
+    ]),
+    '6': ('Reporting', '50-REPORTING', [
+        ('report_gen', 'Report Generator', '50-REPORTING/report_generator.py'),
+        ('forensic', 'Forensic Analyzer', '50-REPORTING/forensic_analyzer.py'),
+        ('keylogger_det', 'Keylogger Detector', '50-REPORTING/keylogger_detector.py'),
+    ]),
+    '7': ('Cryptography', '70-CRYPTO', [
+        ('hash_cracker', 'Hash Cracker', '70-CRYPTO/hash_cracker.py'),
+        ('stego', 'Steganography Tool', '70-CRYPTO/stego_tool.py'),
+        ('cipher_decoder', 'Cipher Decoder', '70-CRYPTO/cipher_decoder.py'),
+    ]),
+    '8': ('Anonymity', '60-ANONYMITY', [
+        ('tor_mgr', 'Tor Manager', '60-ANONYMITY/tor_manager.py'),
+    ]),
+    '9': ('Wireless', '80-WIRELESS', [
+        ('wifi_scan', 'WiFi Scanner', '80-WIRELESS/wifi_scanner.py'),
+    ]),
 }
 
-class HiveHacker:
-    """Main controller for the HIVE HACKER EDITION"""
+def show_main_menu():
+    """Show main menu"""
+    print(BANNER)
+    print("\n📚 Module Categories:")
+    print("-" * 60)
     
-    def __init__(self, base_path="~/hive-hacker"):
-        self.base_path = Path(base_path).expanduser()
-        self.session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.log_file = self.base_path / "logs" / f"session_{self.session_id}.log"
-        
-        # Ensure log directory exists
-        self.log_file.parent.mkdir(parents=True, exist_ok=True)
-        
-    def banner(self):
-        """Display the HIVE banner"""
-        print("""
-╔══════════════════════════════════════════════════════════════════╗
-║  🐝 HIVE HACKER EDITION - Red Team Arsenal v2.0 🐝              ║
-║                                                                  ║
-║  "With great power comes great responsibility"                  ║
-║                                                                  ║
-║  ⚠️  AUTHORIZED TESTING ONLY - See LEGAL_NOTICE.txt             ║
-╚══════════════════════════════════════════════════════════════════╝
-        """)
+    for key, (name, path, tools) in MODULES.items():
+        print(f"\n  [{key}] {name}")
+        print(f"      {len(tools)} tools available")
     
-    def menu(self):
-        """Display main menu"""
-        print("\n📋 MODULES AVAILABLE:\n")
-        print("  ID  | Category              | Tools")
-        print("  " + "-" * 50)
-        
-        for idx, (key, mod) in enumerate(MODULES.items(), 1):
-            tool_count = len(mod['tools'])
-            print(f"  {idx:2}  | {mod['name']:21} | {tool_count} tools")
-        
-        print("\n  99  | 🚀 Quick Launch         | Automated engagement")
-        print("  00  | 📊 System Status        | Check environment")
-        print("  q   | ❌ Quit                  | Exit HIVE")
+    print("\n" + "-" * 60)
+    print("\n  [S] Swarm Mode - AI-Powered Automation")
+    print("  [A] View All Tools")
+    print("  [Q] Quit")
+
+def show_module_tools(module_key):
+    """Show tools in a module"""
+    if module_key not in MODULES:
+        print("✗ Invalid module")
+        return
     
-    def check_environment(self):
-        """Check if the environment is ready"""
-        print("\n🔍 SYSTEM STATUS:\n")
-        
-        checks = {
-            "Python 3": self._check_command("python3 --version"),
-            "Git": self._check_command("git --version"),
-            "cURL": self._check_command("curl --version"),
-            "OpenSSL": self._check_command("openssl version"),
-            "Tor": self._check_command("tor --version"),
-            "Termux-API": self._check_file("/data/data/com.termux/files/usr/bin/termux-api-start"),
-        }
-        
-        for name, status in checks.items():
-            icon = "✓" if status else "✗"
-            print(f"  {icon} {name}")
-        
-        ready = sum(checks.values())
-        total = len(checks)
-        print(f"\n  Status: {ready}/{total} components ready")
-        
-        if ready < total:
-            print("\n  ⚠️  Run: ./00-INSTALL/setup.sh")
+    name, path, tools = MODULES[module_key]
     
-    def _check_command(self, cmd):
-        """Check if a command exists"""
-        try:
-            result = subprocess.run(cmd.split(), 
-                                  capture_output=True, 
-                                  timeout=5)
-            return result.returncode == 0
-        except:
-            return False
+    print(f"\n🔧 {name} Tools:")
+    print("-" * 60)
     
-    def _check_file(self, path):
-        """Check if a file exists"""
-        return Path(path).exists()
+    for i, (tool_id, tool_name, tool_path) in enumerate(tools, 1):
+        print(f"  [{i}] {tool_name}")
+        print(f"      Path: {tool_path}")
     
-    def run_tool(self, module_key, tool_name, target=None):
-        """Execute a specific tool"""
-        module = MODULES.get(module_key)
-        if not module:
-            print(f"✗ Unknown module: {module_key}")
-            return
-        
-        tool_path = self.base_path / module['path'] / f"{tool_name}.py"
-        
-        if not tool_path.exists():
-            print(f"✗ Tool not found: {tool_path}")
-            return
-        
-        print(f"\n🚀 Launching: {module['name']} > {tool_name}")
-        print("-" * 50)
-        
-        cmd = ["python3", str(tool_path)]
-        if target:
-            cmd.append(target)
-        
-        try:
-            subprocess.run(cmd, timeout=300)
-        except subprocess.TimeoutExpired:
-            print("⚠️ Tool timed out after 5 minutes")
-        except Exception as e:
-            print(f"✗ Error: {e}")
+    print("\n" + "-" * 60)
+    print("  [0] Back to main menu")
+
+def run_tool(module_key, tool_idx):
+    """Run a specific tool"""
+    if module_key not in MODULES:
+        return
     
-    def quick_launch(self):
-        """Run automated reconnaissance sequence"""
-        print("\n🚀 QUICK LAUNCH - Automated Engagement")
-        print("=" * 50)
-        
-        target = input("\nEnter authorized target (IP/Domain): ").strip()
-        if not target:
-            print("✗ No target specified")
-            return
-        
-        print(f"\n⚠️  You are about to scan: {target}")
-        confirm = input("Do you have explicit authorization? (yes/no): ").lower()
-        if confirm != "yes":
-            print("✗ Aborted - Authorization required")
-            return
-        
-        # Run sequence
-        sequence = [
-            ("recon", "domain_enum", target),
-            ("scanning", "port_scan", target),
-            ("scanning", "web_scan", target),
-        ]
-        
-        for module, tool, tgt in sequence:
-            self.run_tool(module, tool, tgt)
-            input("\nPress Enter to continue to next phase...")
+    name, path, tools = MODULES[module_key]
     
-    def interactive(self):
-        """Main interactive loop"""
-        self.banner()
-        
-        while True:
-            self.menu()
-            choice = input("\nSelect module [1-9, 99, 00, q]: ").strip().lower()
-            
-            if choice == 'q':
-                print("\n👋 Goodbye, ethical hacker!")
-                break
-            
-            elif choice == '00':
-                self.check_environment()
-            
-            elif choice == '99':
-                self.quick_launch()
-            
-            elif choice.isdigit() and 1 <= int(choice) <= 9:
-                module_key = list(MODULES.keys())[int(choice) - 1]
-                self.module_menu(module_key)
-            
-            else:
-                print("\n✗ Invalid choice")
+    if tool_idx < 1 or tool_idx > len(tools):
+        return
     
-    def module_menu(self, module_key):
-        """Display module-specific menu"""
-        module = MODULES[module_key]
+    tool_id, tool_name, tool_path = tools[tool_idx - 1]
+    full_path = Path(__file__).parent / tool_path
+    
+    if full_path.exists():
+        print(f"\n🚀 Launching {tool_name}...")
+        print("-" * 60)
+        os.system(f"python3 {full_path}")
+    else:
+        print(f"✗ Tool not found: {tool_path}")
+
+def swarm_mode():
+    """Launch Swarm orchestration mode"""
+    print("""
+╔══════════════════════════════════════════════════════════════╗
+║  🐝 SWARM MODE                                                ║
+║                                                                ║
+║  Multi-Agent AI Orchestration                                  ║
+║  Delegation: User → Main AI → Swarm → Agent → Verify → Deliver ║
+╚══════════════════════════════════════════════════════════════╝
+    """)
+    
+    try:
+        from core.orchestrator import SwarmOrchestrator
         
-        while True:
-            print(f"\n📁 {module['name']}")
-            print("-" * 40)
+        orch = SwarmOrchestrator()
+        status = orch.get_status_report()
+        
+        print("\n📊 Swarm Status:")
+        for key, value in status.items():
+            print(f"  {key}: {value}")
+        
+        print("\n✓ Swarm system ready")
+        
+        # Interactive task creation
+        print("\n" + "-" * 60)
+        task = input("Enter task for Swarm (or press Enter to skip): ").strip()
+        
+        if task:
+            task_id = orch.delegate_task(task, "assistant_agent")
+            print(f"\n✓ Task created: {task_id}")
+            print(f"  Description: {task}")
+            print(f"  Status: Delegated to Swarm")
             
-            for idx, tool in enumerate(module['tools'], 1):
-                print(f"  {idx}. {tool}")
-            
-            print(f"\n  0. Back to main menu")
-            
-            choice = input(f"\nSelect tool [0-{len(module['tools'])}]: ").strip()
-            
-            if choice == '0':
-                break
-            
-            elif choice.isdigit() and 1 <= int(choice) <= len(module['tools']):
-                tool_name = module['tools'][int(choice) - 1]
-                target = input("Enter target (optional): ").strip() or None
-                self.run_tool(module_key, tool_name, target)
-            
-            else:
-                print("✗ Invalid choice")
+    except Exception as e:
+        print(f"✗ Swarm error: {e}")
+        print("  Ensure core/orchestrator.py exists")
+
+def show_all_tools():
+    """Show all available tools"""
+    print("\n📚 Complete Tool Arsenal:")
+    print("=" * 60)
+    
+    total = 0
+    for key, (name, path, tools) in MODULES.items():
+        print(f"\n{name}:")
+        for tool_id, tool_name, tool_path in tools:
+            print(f"  • {tool_name}")
+            total += 1
+    
+    print("\n" + "=" * 60)
+    print(f"Total: {total} tools")
 
 def main():
-    """Entry point"""
-    hive = HiveHacker()
-    
-    # Check if running with arguments
-    if len(sys.argv) > 1:
-        # Command line mode
-        if sys.argv[1] == "--status":
-            hive.check_environment()
-        elif sys.argv[1] == "--quick":
-            hive.quick_launch()
+    """Main loop"""
+    while True:
+        show_main_menu()
+        
+        choice = input("\n➤ Select: ").strip().upper()
+        
+        if choice == 'Q':
+            print("\n✓ Hive system shutting down...")
+            break
+        
+        elif choice == 'A':
+            show_all_tools()
+        
+        elif choice == 'S':
+            swarm_mode()
+        
+        elif choice in MODULES:
+            while True:
+                show_module_tools(choice)
+                tool_choice = input("\n➤ Select tool: ").strip()
+                
+                if tool_choice == '0':
+                    break
+                
+                try:
+                    tool_idx = int(tool_choice)
+                    run_tool(choice, tool_idx)
+                except ValueError:
+                    print("✗ Invalid choice")
+        
         else:
-            print(f"Usage: {sys.argv[0]} [--status|--quick]")
-    else:
-        # Interactive mode
-        hive.interactive()
+            print("✗ Invalid selection")
+        
+        input("\nPress Enter to continue...")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\n✓ Hive system shutting down...")
