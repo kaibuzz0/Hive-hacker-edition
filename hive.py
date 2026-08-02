@@ -67,6 +67,13 @@ MODULES = {
     '9': ('Wireless', '80-WIRELESS', [
         ('wifi_scan', 'WiFi Scanner', '80-WIRELESS/wifi_scanner.py'),
     ]),
+    'F': ('Flipper Zero', '85-FLIPPER-Zero', [
+        ('subghz', 'Sub-GHz Tool', '85-FLIPPER-Zero/flipper_subghz.py'),
+        ('nfc', 'NFC Tool', '85-FLIPPER-Zero/flipper_nfc.py'),
+        ('ir', 'IR Remote Tool', '85-FLIPPER-Zero/flipper_ir.py'),
+        ('badusb', 'BadUSB Payloads', '85-FLIPPER-Zero/flipper_badusb.py'),
+        ('bridge', 'Serial Bridge', '85-FLIPPER-Zero/flipper_bridge.py'),
+    ]),
 }
 
 def show_main_menu():
