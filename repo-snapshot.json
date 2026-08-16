@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-16T23:58:27Z",
+  "source_commit": "e557e0a6f1d0fa9804987d07701fbb8e01f6d370",
+  "repo": {
+    "id": "hive-hacker-edition",
+    "full_name": "kaibuzz0/Hive-hacker-edition",
+    "url": "https://github.com/kaibuzz0/Hive-hacker-edition",
+    "default_branch": "main"
+  },
+  "stats": {
+    "tracked_files": 87,
+    "python_files": 56,
+    "javascript_typescript_files": 0,
+    "workflow_files": 2,
+    "test_files": 2
+  },
+  "tools": [],
+  "toolsets": [],
+  "cases": [],
+  "opportunities": [],
+  "intelligence": [],
+  "sources": [],
+  "prompts": [],
+  "evidence": [],
+  "agent_ops": {},
+  "activity": [
+    {
+      "id": "e557e0a6f1d0fa9804987d07701fbb8e01f6d370",
+      "type": "commit",
+      "title": "Connect repository to GitHub Command Site",
+      "timestamp": "2026-08-16T18:58:20-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/e557e0a6f1d0fa9804987d07701fbb8e01f6d370"
+    },
+    {
+      "id": "a354a4da85c2ee4df6c5f60d4901919dfbf718d5",
+      "type": "commit",
+      "title": "docs: Complete README rewrite with tool inventory, Flipper docs, file map, changelog",
+      "timestamp": "2026-08-02T17:38:26Z",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/a354a4da85c2ee4df6c5f60d4901919dfbf718d5"
+    },
+    {
+      "id": "7e7c1a09a7c544b74faccf03a8ca4cff58fc86f3",
+      "type": "commit",
+      "title": "feat: Flipper Zero Plugin \u2014 Generate, analyze, and bridge payloads",
+      "timestamp": "2026-08-02T17:20:38Z",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/7e7c1a09a7c544b74faccf03a8ca4cff58fc86f3"
+    },
+    {
+      "id": "941fe235a4462da9d7715e2bed68ccb7be058a15",
+      "type": "commit",
+      "title": "Replace mock SSH brute with real paramiko implementation",
+      "timestamp": "2026-07-23T19:06:38-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/941fe235a4462da9d7715e2bed68ccb7be058a15"
+    },
+    {
+      "id": "c9d8cb4bd63bda1c1cbb2ad4578e513ddf3020eb",
+      "type": "commit",
+      "title": "Add GitHub Actions CI/CD workflow",
+      "timestamp": "2026-07-23T19:06:37-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/c9d8cb4bd63bda1c1cbb2ad4578e513ddf3020eb"
+    },
+    {
+      "id": "d9b8906e297d3d5bfc0a97e153855c6df4c925bc",
+      "type": "commit",
+      "title": "Add requirements.txt with all Python dependencies",
+      "timestamp": "2026-07-23T19:06:36-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/d9b8906e297d3d5bfc0a97e153855c6df4c925bc"
+    },
+    {
+      "id": "dbdd7862b37b98757ebb82c68502d642ab66a549",
+      "type": "commit",
+      "title": "Delete README.md",
+      "timestamp": "2026-07-19T09:23:34-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/dbdd7862b37b98757ebb82c68502d642ab66a549"
+    },
+    {
+      "id": "ec632c8210cc72d654defc7a91b549508b049883",
+      "type": "commit",
+      "title": "v2.1.0: Replace simulation with real implementation",
+      "timestamp": "2026-07-19T14:23:09Z",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/ec632c8210cc72d654defc7a91b549508b049883"
+    },
+    {
+      "id": "ccb1fd2d9c1474074ebab18a45481f99d61680ff",
+      "type": "commit",
+      "title": "[node_1_termux] Bridge confirmed - full duplex established",
+      "timestamp": "2026-07-18T02:15:55Z",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/ccb1fd2d9c1474074ebab18a45481f99d61680ff"
+    },
+    {
+      "id": "f45e33ca0c54b4218232a840febbb0adcc971cc9",
+      "type": "commit",
+      "title": "\ud83d\udc1d Swarm Bridge: Adding swarm-bridge/mailbox/d0a95e00.json",
+      "timestamp": "2026-07-17T21:08:57-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/f45e33ca0c54b4218232a840febbb0adcc971cc9"
+    }
+  ],
+  "links": [
+    {
+      "id": "github",
+      "name": "GitHub repository",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition"
+    },
+    {
+      "id": "actions",
+      "name": "GitHub Actions",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/actions"
+    },
+    {
+      "id": "issues",
+      "name": "Issues",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/issues"
+    }
+  ]
+}
