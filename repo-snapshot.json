@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T23:58:27Z",
-  "source_commit": "e557e0a6f1d0fa9804987d07701fbb8e01f6d370",
+  "generated_at": "2026-08-17T00:18:35Z",
+  "source_commit": "a28135ef8ed2bdb15a624e0a48e64d1e86d9e36a",
   "repo": {
     "id": "hive-hacker-edition",
     "full_name": "kaibuzz0/Hive-hacker-edition",
@@ -15,6 +15,619 @@
     "workflow_files": 2,
     "test_files": 2
   },
+  "repository_tree": {
+    "total_files": 87,
+    "total_directories": 23,
+    "files_truncated": false,
+    "directories_truncated": false,
+    "top_level": [
+      ".github",
+      ".gitignore",
+      "00-INSTALL",
+      "10-RECON",
+      "20-SCANNING",
+      "30-EXPLOITATION",
+      "40-POST-EXPLOIT",
+      "50-REPORTING",
+      "60-ANONYMITY",
+      "70-CRYPTO",
+      "80-WIRELESS",
+      "85-FLIPPER-Zero",
+      "90-SOCIAL-ENG",
+      "LEGAL_NOTICE.txt",
+      "README.md",
+      "README_v2.1.0.md",
+      "config",
+      "core",
+      "core_v1_backup",
+      "docs",
+      "hive.py",
+      "install.sh",
+      "integration",
+      "manifest.json",
+      "requirements.txt",
+      "setup.sh",
+      "start.sh",
+      "swarm-bridge"
+    ],
+    "directories": [
+      {
+        "path": ".github",
+        "name": ".github",
+        "depth": 1,
+        "file_count": 2
+      },
+      {
+        "path": ".github/workflows",
+        "name": "workflows",
+        "depth": 2,
+        "file_count": 2
+      },
+      {
+        "path": "00-INSTALL",
+        "name": "00-INSTALL",
+        "depth": 1,
+        "file_count": 2
+      },
+      {
+        "path": "10-RECON",
+        "name": "10-RECON",
+        "depth": 1,
+        "file_count": 8
+      },
+      {
+        "path": "20-SCANNING",
+        "name": "20-SCANNING",
+        "depth": 1,
+        "file_count": 7
+      },
+      {
+        "path": "30-EXPLOITATION",
+        "name": "30-EXPLOITATION",
+        "depth": 1,
+        "file_count": 8
+      },
+      {
+        "path": "40-POST-EXPLOIT",
+        "name": "40-POST-EXPLOIT",
+        "depth": 1,
+        "file_count": 6
+      },
+      {
+        "path": "50-REPORTING",
+        "name": "50-REPORTING",
+        "depth": 1,
+        "file_count": 6
+      },
+      {
+        "path": "60-ANONYMITY",
+        "name": "60-ANONYMITY",
+        "depth": 1,
+        "file_count": 3
+      },
+      {
+        "path": "70-CRYPTO",
+        "name": "70-CRYPTO",
+        "depth": 1,
+        "file_count": 7
+      },
+      {
+        "path": "80-WIRELESS",
+        "name": "80-WIRELESS",
+        "depth": 1,
+        "file_count": 2
+      },
+      {
+        "path": "85-FLIPPER-Zero",
+        "name": "85-FLIPPER-Zero",
+        "depth": 1,
+        "file_count": 6
+      },
+      {
+        "path": "90-SOCIAL-ENG",
+        "name": "90-SOCIAL-ENG",
+        "depth": 1,
+        "file_count": 1
+      },
+      {
+        "path": "config",
+        "name": "config",
+        "depth": 1,
+        "file_count": 1
+      },
+      {
+        "path": "core",
+        "name": "core",
+        "depth": 1,
+        "file_count": 7
+      },
+      {
+        "path": "core/agents",
+        "name": "agents",
+        "depth": 2,
+        "file_count": 2
+      },
+      {
+        "path": "core_v1_backup",
+        "name": "core_v1_backup",
+        "depth": 1,
+        "file_count": 3
+      },
+      {
+        "path": "docs",
+        "name": "docs",
+        "depth": 1,
+        "file_count": 1
+      },
+      {
+        "path": "integration",
+        "name": "integration",
+        "depth": 1,
+        "file_count": 3
+      },
+      {
+        "path": "swarm-bridge",
+        "name": "swarm-bridge",
+        "depth": 1,
+        "file_count": 4
+      },
+      {
+        "path": "swarm-bridge/swarm-bridge",
+        "name": "swarm-bridge",
+        "depth": 2,
+        "file_count": 3
+      },
+      {
+        "path": "swarm-bridge/swarm-bridge/clients",
+        "name": "clients",
+        "depth": 3,
+        "file_count": 1
+      },
+      {
+        "path": "swarm-bridge/swarm-bridge/mailbox",
+        "name": "mailbox",
+        "depth": 3,
+        "file_count": 2
+      }
+    ],
+    "files": [
+      {
+        "path": ".github/workflows/ci.yml",
+        "name": "ci.yml",
+        "extension": ".yml"
+      },
+      {
+        "path": ".github/workflows/command-site-snapshot.yml",
+        "name": "command-site-snapshot.yml",
+        "extension": ".yml"
+      },
+      {
+        "path": ".gitignore",
+        "name": ".gitignore",
+        "extension": ""
+      },
+      {
+        "path": "00-INSTALL/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "00-INSTALL/setup.sh",
+        "name": "setup.sh",
+        "extension": ".sh"
+      },
+      {
+        "path": "10-RECON/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "10-RECON/banner_grab.py",
+        "name": "banner_grab.py",
+        "extension": ".py"
+      },
+      {
+        "path": "10-RECON/binary_analyzer.py",
+        "name": "binary_analyzer.py",
+        "extension": ".py"
+      },
+      {
+        "path": "10-RECON/dns_enum.py",
+        "name": "dns_enum.py",
+        "extension": ".py"
+      },
+      {
+        "path": "10-RECON/memory_tracer.py",
+        "name": "memory_tracer.py",
+        "extension": ".py"
+      },
+      {
+        "path": "10-RECON/resonance_scanner.py",
+        "name": "resonance_scanner.py",
+        "extension": ".py"
+      },
+      {
+        "path": "10-RECON/subdomain_brute.py",
+        "name": "subdomain_brute.py",
+        "extension": ".py"
+      },
+      {
+        "path": "10-RECON/whois_enum.py",
+        "name": "whois_enum.py",
+        "extension": ".py"
+      },
+      {
+        "path": "20-SCANNING/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "20-SCANNING/dir_bruter.py",
+        "name": "dir_bruter.py",
+        "extension": ".py"
+      },
+      {
+        "path": "20-SCANNING/heap_analyzer.py",
+        "name": "heap_analyzer.py",
+        "extension": ".py"
+      },
+      {
+        "path": "20-SCANNING/net_sniffer.py",
+        "name": "net_sniffer.py",
+        "extension": ".py"
+      },
+      {
+        "path": "20-SCANNING/network_scanner.py",
+        "name": "network_scanner.py",
+        "extension": ".py"
+      },
+      {
+        "path": "20-SCANNING/port_scanner.py",
+        "name": "port_scanner.py",
+        "extension": ".py"
+      },
+      {
+        "path": "20-SCANNING/web_scanner.py",
+        "name": "web_scanner.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "30-EXPLOITATION/exploit_search.py",
+        "name": "exploit_search.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/fuzz_tester.py",
+        "name": "fuzz_tester.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/payload_generator.py",
+        "name": "payload_generator.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/payload_injector.py",
+        "name": "payload_injector.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/sql_injector.py",
+        "name": "sql_injector.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/ssh_brute.py",
+        "name": "ssh_brute.py",
+        "extension": ".py"
+      },
+      {
+        "path": "30-EXPLOITATION/xss_tester.py",
+        "name": "xss_tester.py",
+        "extension": ".py"
+      },
+      {
+        "path": "40-POST-EXPLOIT/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "40-POST-EXPLOIT/backdoor_manager.py",
+        "name": "backdoor_manager.py",
+        "extension": ".py"
+      },
+      {
+        "path": "40-POST-EXPLOIT/cred_harvester.py",
+        "name": "cred_harvester.py",
+        "extension": ".py"
+      },
+      {
+        "path": "40-POST-EXPLOIT/obfuscator.py",
+        "name": "obfuscator.py",
+        "extension": ".py"
+      },
+      {
+        "path": "40-POST-EXPLOIT/privesc_checker.py",
+        "name": "privesc_checker.py",
+        "extension": ".py"
+      },
+      {
+        "path": "40-POST-EXPLOIT/stealth_wrapper.py",
+        "name": "stealth_wrapper.py",
+        "extension": ".py"
+      },
+      {
+        "path": "50-REPORTING/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "50-REPORTING/forensic_analyzer.py",
+        "name": "forensic_analyzer.py",
+        "extension": ".py"
+      },
+      {
+        "path": "50-REPORTING/integrity_checker.py",
+        "name": "integrity_checker.py",
+        "extension": ".py"
+      },
+      {
+        "path": "50-REPORTING/keylogger_detector.py",
+        "name": "keylogger_detector.py",
+        "extension": ".py"
+      },
+      {
+        "path": "50-REPORTING/report_generator.py",
+        "name": "report_generator.py",
+        "extension": ".py"
+      },
+      {
+        "path": "50-REPORTING/system_monitor.py",
+        "name": "system_monitor.py",
+        "extension": ".py"
+      },
+      {
+        "path": "60-ANONYMITY/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "60-ANONYMITY/secure_vault.py",
+        "name": "secure_vault.py",
+        "extension": ".py"
+      },
+      {
+        "path": "60-ANONYMITY/tor_manager.py",
+        "name": "tor_manager.py",
+        "extension": ".py"
+      },
+      {
+        "path": "70-CRYPTO/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "70-CRYPTO/chain_analyzer.py",
+        "name": "chain_analyzer.py",
+        "extension": ".py"
+      },
+      {
+        "path": "70-CRYPTO/cipher_decoder.py",
+        "name": "cipher_decoder.py",
+        "extension": ".py"
+      },
+      {
+        "path": "70-CRYPTO/crypto_sim.py",
+        "name": "crypto_sim.py",
+        "extension": ".py"
+      },
+      {
+        "path": "70-CRYPTO/hash_cracker.py",
+        "name": "hash_cracker.py",
+        "extension": ".py"
+      },
+      {
+        "path": "70-CRYPTO/stego_tool.py",
+        "name": "stego_tool.py",
+        "extension": ".py"
+      },
+      {
+        "path": "70-CRYPTO/wallet_tools.py",
+        "name": "wallet_tools.py",
+        "extension": ".py"
+      },
+      {
+        "path": "80-WIRELESS/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "80-WIRELESS/wifi_scanner.py",
+        "name": "wifi_scanner.py",
+        "extension": ".py"
+      },
+      {
+        "path": "85-FLIPPER-Zero/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "85-FLIPPER-Zero/flipper_badusb.py",
+        "name": "flipper_badusb.py",
+        "extension": ".py"
+      },
+      {
+        "path": "85-FLIPPER-Zero/flipper_bridge.py",
+        "name": "flipper_bridge.py",
+        "extension": ".py"
+      },
+      {
+        "path": "85-FLIPPER-Zero/flipper_ir.py",
+        "name": "flipper_ir.py",
+        "extension": ".py"
+      },
+      {
+        "path": "85-FLIPPER-Zero/flipper_nfc.py",
+        "name": "flipper_nfc.py",
+        "extension": ".py"
+      },
+      {
+        "path": "85-FLIPPER-Zero/flipper_subghz.py",
+        "name": "flipper_subghz.py",
+        "extension": ".py"
+      },
+      {
+        "path": "90-SOCIAL-ENG/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "LEGAL_NOTICE.txt",
+        "name": "LEGAL_NOTICE.txt",
+        "extension": ".txt"
+      },
+      {
+        "path": "README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "README_v2.1.0.md",
+        "name": "README_v2.1.0.md",
+        "extension": ".md"
+      },
+      {
+        "path": "config/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "core/agents/architect_agent.py",
+        "name": "architect_agent.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core/agents/assistant_agent.py",
+        "name": "assistant_agent.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core/hive_mq.py",
+        "name": "hive_mq.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core/hive_runner.py",
+        "name": "hive_runner.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core/hive_verify.py",
+        "name": "hive_verify.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core/orchestrator.py",
+        "name": "orchestrator.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core/port_manager.sh",
+        "name": "port_manager.sh",
+        "extension": ".sh"
+      },
+      {
+        "path": "core_v1_backup/backup_manager.py",
+        "name": "backup_manager.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core_v1_backup/orchestrator.py",
+        "name": "orchestrator.py",
+        "extension": ".py"
+      },
+      {
+        "path": "core_v1_backup/self_heal.py",
+        "name": "self_heal.py",
+        "extension": ".py"
+      },
+      {
+        "path": "docs/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "hive.py",
+        "name": "hive.py",
+        "extension": ".py"
+      },
+      {
+        "path": "install.sh",
+        "name": "install.sh",
+        "extension": ".sh"
+      },
+      {
+        "path": "integration/README.md",
+        "name": "README.md",
+        "extension": ".md"
+      },
+      {
+        "path": "integration/hermes_bridge.py",
+        "name": "hermes_bridge.py",
+        "extension": ".py"
+      },
+      {
+        "path": "integration/hermes_config.json",
+        "name": "hermes_config.json",
+        "extension": ".json"
+      },
+      {
+        "path": "manifest.json",
+        "name": "manifest.json",
+        "extension": ".json"
+      },
+      {
+        "path": "requirements.txt",
+        "name": "requirements.txt",
+        "extension": ".txt"
+      },
+      {
+        "path": "setup.sh",
+        "name": "setup.sh",
+        "extension": ".sh"
+      },
+      {
+        "path": "start.sh",
+        "name": "start.sh",
+        "extension": ".sh"
+      },
+      {
+        "path": "swarm-bridge/.gitignore",
+        "name": ".gitignore",
+        "extension": ""
+      },
+      {
+        "path": "swarm-bridge/swarm-bridge/clients/swarm_bridge_windows.py",
+        "name": "swarm_bridge_windows.py",
+        "extension": ".py"
+      },
+      {
+        "path": "swarm-bridge/swarm-bridge/mailbox/d0a95e00.json",
+        "name": "d0a95e00.json",
+        "extension": ".json"
+      },
+      {
+        "path": "swarm-bridge/swarm-bridge/mailbox/e8f2b1a4.json",
+        "name": "e8f2b1a4.json",
+        "extension": ".json"
+      }
+    ]
+  },
   "tools": [],
   "toolsets": [],
   "cases": [],
@@ -25,6 +638,13 @@
   "evidence": [],
   "agent_ops": {},
   "activity": [
+    {
+      "id": "a28135ef8ed2bdb15a624e0a48e64d1e86d9e36a",
+      "type": "commit",
+      "title": "Command site: enable repository Explorer snapshots",
+      "timestamp": "2026-08-16T19:18:28-05:00",
+      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/a28135ef8ed2bdb15a624e0a48e64d1e86d9e36a"
+    },
     {
       "id": "e557e0a6f1d0fa9804987d07701fbb8e01f6d370",
       "type": "commit",
@@ -87,13 +707,6 @@
       "title": "[node_1_termux] Bridge confirmed - full duplex established",
       "timestamp": "2026-07-18T02:15:55Z",
       "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/ccb1fd2d9c1474074ebab18a45481f99d61680ff"
-    },
-    {
-      "id": "f45e33ca0c54b4218232a840febbb0adcc971cc9",
-      "type": "commit",
-      "title": "\ud83d\udc1d Swarm Bridge: Adding swarm-bridge/mailbox/d0a95e00.json",
-      "timestamp": "2026-07-17T21:08:57-05:00",
-      "url": "https://github.com/kaibuzz0/Hive-hacker-edition/commit/f45e33ca0c54b4218232a840febbb0adcc971cc9"
     }
   ],
   "links": [
